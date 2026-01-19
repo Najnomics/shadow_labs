@@ -1,0 +1,23 @@
+import Link from 'next/link'
+import Button from '@/components/Button'
+import Logo from '@/components/Logo'
+
+export default function NotFound() {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="text-center max-w-md">
+        <Logo variant="full" size="lg" className="mb-8" />
+        <h1 className="text-6xl font-bold mb-4 text-glow">404</h1>
+        <h2 className="text-2xl font-bold mb-4">Page Not Found</h2>
+        <p className="text-shadow-text-light mb-8">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <Link href="/">
+          <Button variant="primary" size="lg">
+            Go Home
+          </Button>
+        </Link>
+      </div>
+    </div>
+  )
+}
