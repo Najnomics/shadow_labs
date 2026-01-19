@@ -230,7 +230,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = products[params.slug as keyof typeof products]
+  const slug = params.slug as keyof typeof products
+  const product = products[slug]
 
   if (!product) {
     notFound()
@@ -318,7 +319,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </Card>
 
         {/* Architecture & Components - For StealthAuction and ShadowBook */}
-        {(params.slug === 'stealthauction' || params.slug === 'shadowbook') && product.architecture && (
+        {(slug === 'stealthauction' || slug === 'shadowbook') && product.architecture && (
           <>
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
@@ -367,7 +368,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
 
             {/* Encrypted Order Structure - ShadowBook only */}
-            {params.slug === 'shadowbook' && product.architecture.encryptedOrder && (
+            {slug === 'shadowbook' && 'encryptedOrder' in product.architecture && product.architecture.encryptedOrder && (
               <Card className="mb-8 sm:mb-12">
                 <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Encrypted Order Structure</h2>
                 <div className="glass rounded-lg p-3 sm:p-4 border-minimal mb-3 sm:mb-4 overflow-x-auto">
@@ -379,7 +380,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             )}
 
             {/* Financial Impact - ShadowBook only */}
-            {params.slug === 'shadowbook' && product.financialImpact && (
+            {slug === 'shadowbook' && 'financialImpact' in product && product.financialImpact && (
               <Card className="mb-8 sm:mb-12">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Financial Impact</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -404,7 +405,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             )}
 
             {/* Roadmap - ShadowRouter only */}
-            {params.slug === 'shadowrouter' && product.roadmap && (
+            {params.slug === 'shadowrouter' && 'roadmap' in product && product.roadmap && (
               <Card className="mb-8 sm:mb-12">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Roadmap</h2>
                 <div className="space-y-3 sm:space-y-4">
@@ -480,10 +481,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                         <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
                         <span>{product.performance.security}</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm sm:text-base text-shadow-text-light">
-                        <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
-                        <span>{product.performance.fheCompliance}</span>
-                      </li>
+                      {'fheCompliance' in product.performance && (
+                        <li className="flex items-start gap-2 text-sm sm:text-base text-shadow-text-light">
+                          <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
+                          <span>{product.performance.fheCompliance}</span>
+                        </li>
+                      )}
+                      {'extensibility' in product.performance && (
+                        <li className="flex items-start gap-2 text-sm sm:text-base text-shadow-text-light">
+                          <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
+                          <span>{product.performance.extensibility}</span>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -512,7 +521,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         )}
 
         {/* Architecture & Components - For ShadowRouter */}
-        {params.slug === 'shadowrouter' && product.architecture && (
+        {slug === 'shadowrouter' && product.architecture && (
           <>
             <div className="mb-8 sm:mb-12">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -548,7 +557,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-shadow-green flex-shrink-0 mt-0.5 sm:mt-1" />
                     <h3 className="text-lg sm:text-xl font-bold">Shadow Labs</h3>
                   </div>
-                  <p className="text-sm sm:text-base text-shadow-text-light">{product.architecture.integration.shadowLabs}</p>
+                  <p className="text-sm sm:text-base text-shadow-text-light">{'shadowLabs' in product.architecture.integration ? product.architecture.integration.shadowLabs : ''}</p>
                 </Card>
                 <Card>
                   <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -599,10 +608,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                         <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
                         <span>{product.performance.security}</span>
                       </li>
-                      <li className="flex items-start gap-2 text-sm sm:text-base text-shadow-text-light">
-                        <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
-                        <span>{product.performance.extensibility}</span>
-                      </li>
+                      {'extensibility' in product.performance && (
+                        <li className="flex items-start gap-2 text-sm sm:text-base text-shadow-text-light">
+                          <Check className="w-4 h-4 text-shadow-green flex-shrink-0 mt-0.5" />
+                          <span>{product.performance.extensibility}</span>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>
