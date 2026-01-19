@@ -78,8 +78,8 @@ export default function AboutPage() {
         <Card className="mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">What Makes Us Different</h2>
           <p className="text-sm sm:text-base md:text-lg text-shadow-text-light leading-relaxed">
-            We're product-focused, not infrastructure. We build end-user products that solve real 
-            problems. Our solutions are composable, trustless, and fully on-chain. We're building 
+            We&apos;re product-focused, not infrastructure. We build end-user products that solve real 
+            problems. Our solutions are composable, trustless, and fully on-chain. We&apos;re building 
             in public, transparent about our progress, challenges, and wins.
           </p>
         </Card>
@@ -119,7 +119,7 @@ export default function AboutPage() {
             </Link>
             <Link href="/content">
               <Button variant="outline" size="lg">
-                See What We're Building
+                See What We&apos;re Building
               </Button>
             </Link>
           </div>

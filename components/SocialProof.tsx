@@ -21,14 +21,14 @@ const SocialProof = () => {
               <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-shadow-green flex-shrink-0 mb-3 sm:mb-0 sm:mr-4" />
               <div className="flex-1 min-w-0">
                 <p className="text-lg sm:text-xl md:text-2xl text-shadow-text mb-3 sm:mb-4 italic">
-                  "This changes everything for governance token events."
+                  &quot;This changes everything for governance token events.&quot;
                 </p>
                 <p className="text-sm sm:text-base text-shadow-text-gray">
                   — Treasury Manager
                 </p>
                 <p className="text-xs sm:text-sm text-shadow-text-gray mt-2">
                   Imagine launching a token and keeping 100% of the value instead of losing 15–40% to MEV extraction.
-                  That's what StealthAuction is for.
+                  That&apos;s what StealthAuction is for.
                 </p>
               </div>
             </div>

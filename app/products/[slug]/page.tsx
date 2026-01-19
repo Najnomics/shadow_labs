@@ -306,7 +306,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
         {/* Who It's For */}
         <Card className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Who It's For</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Who It&apos;s For</h2>
           <ul className="space-y-2">
             {product.targetUsers.map((user, idx) => (
               <li key={idx} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-shadow-text-light">

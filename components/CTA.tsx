@@ -37,7 +37,7 @@ const CTA = () => {
             </Link>
             <Link href="/content" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                See What We're Building
+                See What We&apos;re Building
               </Button>
             </Link>
           </div>

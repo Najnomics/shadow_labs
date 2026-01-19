@@ -82,7 +82,7 @@ export default function EarlyAccessPage() {
             </div>
             <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
             <p className="text-shadow-text-light mb-6">
-              We've received your early access request. We'll be in touch soon with testnet access details.
+              We&apos;ve received your early access request. We&apos;ll be in touch soon with testnet access details.
             </p>
             <Button variant="primary" onClick={() => (window.location.href = '/')}>
               Back to Home
