@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { DOCS } from './docs-config'
+import { FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Documentation - prud_Labs',
@@ -31,6 +32,20 @@ export default function DocsPage() {
             </p>
           </Link>
         ))}
+      </div>
+      <div className="mt-8 pt-6 border-t border-minimal">
+        <a
+          href="/prud-labs-documentation-links.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl p-4 border border-minimal hover:border-shadow-green/30 transition-colors text-shadow-text-light hover:text-white"
+        >
+          <FileText className="w-5 h-5 text-shadow-green flex-shrink-0" />
+          <span>
+            <span className="font-medium block">Documentation links (PDF)</span>
+            <span className="text-xs text-shadow-text-gray">Open this page and use Print → Save as PDF for a single PDF with all doc links.</span>
+          </span>
+        </a>
       </div>
     </div>
   )
