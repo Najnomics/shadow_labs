@@ -2,8 +2,8 @@ import ProductShowcase from '@/components/ProductShowcase'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Products - Shadow Labs',
-  description: 'Explore Shadow Labs encrypted execution products: StealthAuction, ShadowBook, and ShadowRouter.',
+  title: 'Products - prud_Labs',
+  description: 'Explore prud_Labs encrypted execution products: StealthAuction, ShadowBook, and ShadowRouter.',
 }
 
 export default function ProductsPage() {

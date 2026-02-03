@@ -143,12 +143,12 @@ const products = {
     name: 'ShadowRouter',
     icon: Route,
     tagline: 'Unified encrypted execution',
-    description: 'Single integration point for all Shadow Labs encrypted execution products. A unified router that enables wallets, custody providers, and aggregators to access StealthAuction, ShadowBook, and future encrypted hooks through one simple interface. No more bespoke engineering per hook.',
+    description: 'Single integration point for all prud_Labs encrypted execution products. A unified router that enables wallets, custody providers, and aggregators to access StealthAuction, ShadowBook, and future encrypted hooks through one simple interface. No more bespoke engineering per hook.',
     status: 'Coming Soon',
-    problem: 'Integrating multiple encrypted execution surfaces requires bespoke engineering per hook. Each Shadow Labs product (StealthAuction, ShadowBook, future hooks) requires separate integration work. Wallets, custody providers, and aggregators face significant friction routing protected flows. This fragmentation prevents widespread adoption and creates maintenance overhead for integrators.',
+    problem: 'Integrating multiple encrypted execution surfaces requires bespoke engineering per hook. Each prud_Labs product (StealthAuction, ShadowBook, future hooks) requires separate integration work. Wallets, custody providers, and aggregators face significant friction routing protected flows. This fragmentation prevents widespread adoption and creates maintenance overhead for integrators.',
     solution: 'ShadowRouter provides a unified interface that abstracts away the complexity of individual hook integrations. Integrate once and access all encrypted execution surfaces through a single, standardized API. The router handles FHE permissions, hook interactions, and encrypted parameter management automatically. This enables seamless access to StealthAuction auctions, ShadowBook order matching, and future encrypted execution primitives.',
     features: [
-      'Single integration point for all Shadow Labs products',
+      'Single integration point for all prud_Labs products',
       'Unified API for encrypted execution',
       'Automatic FHE permission management',
       'Simplified routing across encrypted hooks',
@@ -184,9 +184,9 @@ const products = {
         { name: 'IShadowRouter.sol', purpose: 'Unified interface for integrators' },
       ],
       integration: {
-        shadowLabs: 'Unified access to StealthAuction (encrypted auctions), ShadowBook (encrypted order book), and future Shadow Labs encrypted execution products through a single integration point.',
+        prudLabs: 'Unified access to StealthAuction (encrypted auctions), ShadowBook (encrypted order book), and future prud_Labs encrypted execution products through a single integration point.',
         fhenix: 'Centralized FHE permission management leveraging Fhenix Protocol\'s CoFHE infrastructure, ensuring seamless encrypted operations across all integrated hooks.',
-        uniswap: 'Built on Uniswap v4 architecture, enabling composable integration with all Shadow Labs hooks while maintaining compatibility with the broader Uniswap ecosystem.',
+        uniswap: 'Built on Uniswap v4 architecture, enabling composable integration with all prud_Labs hooks while maintaining compatibility with the broader Uniswap ecosystem.',
       },
     },
     performance: {
@@ -196,8 +196,8 @@ const products = {
       security: 'Security audited with focus on permission management',
       extensibility: 'Designed for easy addition of new encrypted hooks',
     },
-    technicalHighlights: [
-      'Unified API: Single interface for all Shadow Labs encrypted products',
+      technicalHighlights: [
+      'Unified API: Single interface for all prud_Labs encrypted products',
       'Permission abstraction: Automatic FHE permission handling across hooks',
       'Intelligent routing: Optimal execution path selection',
       'Composable design: Modular architecture for easy extension',
@@ -219,12 +219,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   if (!product) {
     return {
-      title: 'Product Not Found - Shadow Labs',
+      title: 'Product Not Found - prud_Labs',
     }
   }
 
   return {
-    title: `${product.name} - Shadow Labs`,
+    title: `${product.name} - prud_Labs`,
     description: product.description,
   }
 }
@@ -555,9 +555,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <Card>
                   <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-4">
                     <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-shadow-green flex-shrink-0 mt-0.5 sm:mt-1" />
-                    <h3 className="text-lg sm:text-xl font-bold">Shadow Labs</h3>
+                    <h3 className="text-lg sm:text-xl font-bold">prud_Labs</h3>
                   </div>
-                  <p className="text-sm sm:text-base text-shadow-text-light">{'shadowLabs' in product.architecture.integration ? product.architecture.integration.shadowLabs : ''}</p>
+                  <p className="text-sm sm:text-base text-shadow-text-light">{'prudLabs' in product.architecture.integration ? product.architecture.integration.prudLabs : ''}</p>
                 </Card>
                 <Card>
                   <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-4">

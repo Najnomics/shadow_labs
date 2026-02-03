@@ -20,6 +20,9 @@ const Footer = () => {
             <Link href="/products" className="text-xs sm:text-sm text-shadow-text-gray hover:text-white transition-colors">
               Products
             </Link>
+            <Link href="/docs" className="text-xs sm:text-sm text-shadow-text-gray hover:text-white transition-colors">
+              Documentation
+            </Link>
             <Link href="/content" className="text-xs sm:text-sm text-shadow-text-gray hover:text-white transition-colors">
               Content
             </Link>
@@ -47,7 +50,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-minimal text-center text-xs sm:text-sm text-shadow-text-gray">
-          <p>&copy; {new Date().getFullYear()} Shadow Labs. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} prud_Labs. All rights reserved.</p>
         </div>
       </div>
     </footer>

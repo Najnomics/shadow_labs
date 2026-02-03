@@ -31,7 +31,7 @@ const ProductShowcase = () => {
       name: 'ShadowRouter',
       icon: Route,
       tagline: 'Unified encrypted execution',
-      description: 'Single access point to all Shadow Labs encrypted products. One integration for all encrypted execution surfaces.',
+      description: 'Single access point to all prud_Labs encrypted products. One integration for all encrypted execution surfaces.',
       href: '/products/shadowrouter',
       status: 'Coming Soon',
     },

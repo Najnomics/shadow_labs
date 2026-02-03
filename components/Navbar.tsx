@@ -12,6 +12,7 @@ const Navbar = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/products', label: 'Products' },
+    { href: '/docs', label: 'Documentation' },
     { href: '/content', label: 'Content' },
     { href: '/about', label: 'About' },
   ]
@@ -23,8 +24,8 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center min-w-0">
             <Logo variant="logo-only" size="sm" />
-            <span className="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-glow hidden xs:block truncate">
-              SHADOW LABS
+            <span className="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl font-bold tracking-wide text-white text-glow hidden xs:block truncate">
+              prud_Labs
             </span>
           </Link>
 

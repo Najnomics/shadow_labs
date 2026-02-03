@@ -12,14 +12,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Shadow Labs - Encrypted Execution for DeFi',
+  title: 'prud_Labs - Encrypted Execution for DeFi',
   description: 'Encrypted on-chain execution products that solve real problems around MEV extraction, intent leakage, and public execution.',
   keywords: ['DeFi', 'encrypted execution', 'MEV protection', 'StealthAuction', 'ShadowBook', 'ShadowRouter'],
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:8080'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Shadow Labs',
+    siteName: 'prud_Labs',
   },
 }
 

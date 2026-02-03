@@ -1,7 +1,7 @@
-# Shadow Labs Frontend Specification
+# prud_Labs Frontend Specification
 
 ## Overview
-Shadow Labs is a product company focused on encrypted on-chain execution solutions. We build end-user products that solve real problems around MEV extraction, intent leakage, and public execution. The frontend application will serve as the primary interface for showcasing our products, building community, and engaging with users through content marketing.
+prud_Labs is a product company focused on encrypted on-chain execution solutions. We build end-user products that solve real problems around MEV extraction, intent leakage, and public execution. The frontend application will serve as the primary interface for showcasing our products, building community, and engaging with users through content marketing.
 
 ## Core Products
 
@@ -31,12 +31,12 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 
 ### 3. ShadowRouter
 - **Product Type**: Unified encrypted execution interface
-- **Value Proposition**: Single access point to all Shadow Labs encrypted products
+- **Value Proposition**: Single access point to all prud_Labs encrypted products
 - **Features**: 
   - One integration for all encrypted execution surfaces
   - Simplified access to StealthAuction, ShadowBook, and future products
 - **Target Users**: 
-  - Wallets integrating Shadow Labs products
+  - Wallets integrating prud_Labs products
   - Custody providers
   - Aggregators
   - End users wanting unified access
@@ -62,7 +62,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 - **Text**: "ENCRYPTED EXECUTION FOR DEFI"
 - **Styling**: Uppercase, sans-serif, smaller than main brand name
 - **Decoration**: Flanked by short horizontal dashes on both sides
-- **Placement**: Below "SHADOW LABS" text, centered
+- **Placement**: Below "prud_Labs" text, centered
 
 ### Visual Identity
 
@@ -87,7 +87,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
   - Subtle highlights: Match logo metallic tones
 
 #### Typography
-- **Brand Name**: "SHADOW LABS"
+- **Brand Name**: "PRUD LABS"
   - Font: Bold, uppercase, geometric sans-serif
   - Weight: 700-900 (Bold to Black)
   - Style: Clean, sharp edges, modern
@@ -136,7 +136,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
   - Blurred/redacted numbers for encrypted data visualization
   - Poker table metaphor (cards visible to everyone except player)
   - Encrypted orderbook depth (blurred/redacted numbers)
-  - Shadow Labs shield logo integration
+  - prud_Labs shield logo integration
 
 **Layout Principles**:
 - Centered alignment for hero sections
@@ -177,8 +177,8 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 
 **Sections**:
 - **Hero Section**:
-  - Large Shadow Labs shield logo (centered, upper portion)
-  - "SHADOW LABS" brand name below logo
+  - Large prud_Labs shield logo (centered, upper portion)
+  - "PRUD LABS" brand name below logo
   - Tagline "ENCRYPTED EXECUTION FOR DEFI" with dashes
   - Subheading: Problem statement or value proposition
   - CTA: Early access / Testnet access
@@ -191,7 +191,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
     - Trading with cards face up
     - MEV bots watching every move
   
-- **Solution**: Shadow Labs products
+- **Solution**: prud_Labs products
 - **Product Showcase Cards**:
   - StealthAuction: "Keep 100% of token launch value"
   - ShadowBook: "Trade without signaling inventory"
@@ -277,7 +277,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 
 **Visual**: 
 - Centered form on dark background
-- Shadow Labs logo at top
+- prud_Labs logo at top
 - Form inputs with subtle metallic borders
 - Submit button with metallic/chrome styling
 
@@ -285,7 +285,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 **Purpose**: Company story, vision, why we exist
 
 **Content**:
-- Shadow Labs logo and brand name prominently displayed
+- prud_Labs logo and brand name prominently displayed
 - The problem: Onchain execution is broken
 - Our mission: Encrypted execution products for everyone
 - Our vision: A world where you can execute on-chain without leaking intent
@@ -302,7 +302,7 @@ Shadow Labs is a product company focused on encrypted on-chain execution solutio
 
 ### Logo Component
 - **Variants**:
-  - Full logo with text (logo + "SHADOW LABS" + tagline)
+  - Full logo with text (logo + "PRUD LABS" + tagline)
   - Logo only (shield)
   - Text only (for small spaces)
 - **Sizes**: Responsive scaling
@@ -428,7 +428,7 @@ type Post = {
 
 ### Product Discovery Flow
 1. User lands on homepage
-2. Sees Shadow Labs logo and brand name
+2. Sees prud_Labs logo and brand name
 3. Reads problem statement
 4. Browses product cards
 5. Clicks on product of interest
