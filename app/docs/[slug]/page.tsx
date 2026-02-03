@@ -2,25 +2,13 @@ import { notFound } from 'next/navigation'
 import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import DocRenderer from './DocRenderer'
+import DocNav from './DocNav'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { ArrowLeft } from 'lucide-react'
+import { DOCS, getDocBySlug } from '../docs-config'
 
-const ALLOWED_SLUGS = [
-  'technical-overview',
-  'quickstart',
-  'security',
-  'whitepaper',
-] as const
-
-type Slug = (typeof ALLOWED_SLUGS)[number]
-
-const titles: Record<Slug, string> = {
-  'technical-overview': 'Technical Overview',
-  quickstart: 'Quick Start',
-  security: 'Security',
-  whitepaper: 'White Paper',
-}
+const ALLOWED_SLUGS = DOCS.map((d) => d.slug)
 
 export async function generateStaticParams() {
   return ALLOWED_SLUGS.map((slug) => ({ slug }))
@@ -31,13 +19,13 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
-  const slug = params.slug as Slug
-  if (!ALLOWED_SLUGS.includes(slug)) {
+  const doc = getDocBySlug(params.slug)
+  if (!doc) {
     return { title: 'Not Found - prud_Labs' }
   }
   return {
-    title: `${titles[slug]} - prud_Labs`,
-    description: `prud_Labs documentation: ${titles[slug]}.`,
+    title: `${doc.title} - prud_Labs`,
+    description: `prud_Labs documentation: ${doc.description}`,
   }
 }
 
@@ -46,8 +34,9 @@ export default async function DocPage({
 }: {
   params: { slug: string }
 }) {
-  const slug = params.slug as Slug
-  if (!ALLOWED_SLUGS.includes(slug)) {
+  const slug = params.slug
+  const doc = getDocBySlug(slug)
+  if (!doc) {
     notFound()
   }
 
@@ -59,15 +48,16 @@ export default async function DocPage({
   const content = readFileSync(filePath, 'utf-8')
 
   return (
-    <article className="pb-12">
+    <article className="pb-8 sm:pb-12">
       <Link
         href="/docs"
-        className="inline-flex items-center text-shadow-text-gray hover:text-white mb-6 text-sm transition-colors"
+        className="inline-flex items-center gap-2 text-sm text-shadow-text-gray hover:text-white mb-6 transition-colors py-1 -ml-1"
       >
-        <ArrowLeft className="w-4 h-4 mr-2" />
+        <ArrowLeft className="w-4 h-4 flex-shrink-0" aria-hidden />
         Back to Documentation
       </Link>
       <DocRenderer content={content} />
+      <DocNav currentSlug={slug} />
     </article>
   )
 }

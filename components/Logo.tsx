@@ -1,8 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { useState } from 'react'
 
 interface LogoProps {
   variant?: 'full' | 'logo-only' | 'text-only'
@@ -17,49 +15,107 @@ const sizeClasses = {
   xl: 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32',
 }
 
-const imageSizes = {
-  sm: { width: 32, height: 32 },
-  md: { width: 64, height: 64 },
-  lg: { width: 96, height: 96 },
-  xl: { width: 128, height: 128 },
-}
-
 const Logo = ({ variant = 'full', size = 'md', className = '' }: LogoProps) => {
-  const [imgError, setImgError] = useState(false)
-  const { width, height } = imageSizes[size]
-
-  const LogoImage = () => {
-    if (imgError) {
-      return (
-        <span className={`${sizeClasses[size]} flex items-center justify-center font-bold text-white text-glow text-xs sm:text-sm`}>
-          prud_Labs
-        </span>
-      )
-    }
-    return (
-      <Image
-        src="/logo.png"
-        alt="prud_Labs"
-        width={width}
-        height={height}
-        className={`${sizeClasses[size]} object-contain object-center ${className}`}
-        priority
-        unoptimized
-        onError={() => setImgError(true)}
+  const ShieldIcon = () => (
+    <motion.svg
+      className={`${sizeClasses[size]} ${className}`}
+      viewBox="0 0 120 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Shield shape */}
+      <defs>
+        <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4a4a4a" stopOpacity="0.9" />
+          <stop offset="50%" stopColor="#2a2a2a" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#1a1a1a" stopOpacity="0.9" />
+        </linearGradient>
+        <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#e0e0e0" stopOpacity="0.3" />
+        </linearGradient>
+      </defs>
+      
+      {/* Shield outline */}
+      <path
+        d="M60 10 L100 30 L100 80 Q100 100 80 110 L60 130 L40 110 Q20 100 20 80 L20 30 Z"
+        fill="url(#shieldGradient)"
+        stroke="rgba(0, 255, 136, 0.4)"
+        strokeWidth="1.5"
       />
-    )
-  }
+      
+      {/* Top-left segment (quadrilateral) */}
+      <path
+        d="M60 10 L100 30 L60 50 L40 30 Z"
+        fill="rgba(0, 255, 136, 0.15)"
+        stroke="rgba(0, 255, 136, 0.3)"
+        strokeWidth="0.5"
+      />
+      
+      {/* Top-right segment (triangle) */}
+      <path
+        d="M60 10 L100 30 L60 50 Z"
+        fill="rgba(0, 255, 136, 0.1)"
+        stroke="rgba(0, 255, 136, 0.25)"
+        strokeWidth="0.5"
+      />
+      
+      {/* Bottom-left segment (quadrilateral) */}
+      <path
+        d="M40 30 L60 50 L40 70 L20 50 Z"
+        fill="rgba(26, 26, 26, 0.8)"
+        stroke="rgba(0, 255, 136, 0.15)"
+        strokeWidth="0.5"
+      />
+      
+      {/* Bottom-right segment (triangle) */}
+      <path
+        d="M60 50 L100 30 L80 50 Z"
+        fill="rgba(0, 0, 0, 0.6)"
+        stroke="rgba(0, 255, 136, 0.1)"
+        strokeWidth="0.5"
+      />
+      
+      {/* Center convergence lines */}
+      <line
+        x1="60"
+        y1="10"
+        x2="60"
+        y2="70"
+        stroke="rgba(0, 255, 136, 0.3)"
+        strokeWidth="0.5"
+      />
+      <line
+        x1="40"
+        y1="30"
+        x2="100"
+        y2="30"
+        stroke="rgba(0, 255, 136, 0.3)"
+        strokeWidth="0.5"
+      />
+      
+      {/* Highlight reflection */}
+      <path
+        d="M60 10 L100 30 L60 50 L40 30 Z"
+        fill="rgba(0, 255, 136, 0.2)"
+        opacity="0.4"
+      />
+    </motion.svg>
+  )
 
   if (variant === 'logo-only') {
-    return <LogoImage />
+    return <ShieldIcon />
   }
 
   if (variant === 'text-only') {
     return (
       <div className={`flex flex-col items-center ${className}`}>
-        <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wide text-white text-glow">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wider text-glow">
           prud_Labs
-        </span>
+        </h1>
         <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-gray-300 mt-1 px-2 text-center">
           — ENCRYPTED EXECUTION FOR DEFI —
         </p>
@@ -67,48 +123,22 @@ const Logo = ({ variant = 'full', size = 'md', className = '' }: LogoProps) => {
     )
   }
 
-  const FullLogoImage = () => {
-    if (imgError) {
-      return (
-        <motion.span
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide text-white text-glow"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          prud_Labs
-        </motion.span>
-      )
-    }
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center"
-      >
-        <Image
-          src="/logo.png"
-          alt="prud_Labs"
-          width={imageSizes.xl.width * 1.5}
-          height={imageSizes.xl.height * 1.5}
-          className="w-40 h-24 sm:w-48 sm:h-28 md:w-56 md:h-32 object-contain object-center"
-          priority
-          unoptimized
-          onError={() => setImgError(true)}
-        />
-      </motion.div>
-    )
-  }
-
   return (
     <div className={`flex flex-col items-center ${className}`}>
-      <FullLogoImage />
+      <ShieldIcon />
+      <motion.h1
+        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-glow mt-3 sm:mt-4 px-2 text-center"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        prud_Labs
+      </motion.h1>
       <motion.p
         className="text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-gray-300 mt-2 px-4 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
       >
         — ENCRYPTED EXECUTION FOR DEFI —
       </motion.p>

@@ -56,8 +56,8 @@ export default function DocRenderer({ content }: { content: string }) {
           const isBlock = className?.includes('language-')
           if (isBlock) {
             return (
-              <pre className="bg-shadow-gray rounded-lg p-4 overflow-x-auto mb-4 border border-minimal">
-                <code className="text-xs sm:text-sm text-shadow-text-light font-mono" {...props}>
+              <pre className="bg-shadow-gray rounded-lg p-3 sm:p-4 overflow-x-auto mb-4 border border-minimal text-left">
+                <code className="text-xs sm:text-sm text-shadow-text-light font-mono break-normal" {...props}>
                   {children}
                 </code>
               </pre>
@@ -65,7 +65,7 @@ export default function DocRenderer({ content }: { content: string }) {
           }
           return (
             <code
-              className="bg-shadow-gray px-1.5 py-0.5 rounded text-shadow-green font-mono text-xs sm:text-sm"
+              className="bg-shadow-gray px-1.5 py-0.5 rounded text-shadow-green font-mono text-xs sm:text-sm break-all"
               {...props}
             >
               {children}
@@ -79,8 +79,8 @@ export default function DocRenderer({ content }: { content: string }) {
           </blockquote>
         ),
         table: ({ children }) => (
-          <div className="overflow-x-auto mb-4">
-            <table className="w-full border-collapse border border-minimal text-sm sm:text-base">
+          <div className="overflow-x-auto mb-4 -mx-1 px-1 sm:mx-0 sm:px-0 rounded-lg border border-minimal">
+            <table className="w-full border-collapse text-sm sm:text-base min-w-[280px]">
               {children}
             </table>
           </div>
@@ -95,9 +95,9 @@ export default function DocRenderer({ content }: { content: string }) {
           <tr className="border-b border-minimal">{children}</tr>
         ),
         th: ({ children }) => (
-          <th className="text-left p-3 font-bold text-white">{children}</th>
+          <th className="text-left p-3 font-bold text-white whitespace-nowrap">{children}</th>
         ),
-        td: ({ children }) => <td className="p-3">{children}</td>,
+        td: ({ children }) => <td className="p-3 break-words">{children}</td>,
         hr: () => <hr className="border-minimal my-8" />,
       }}
     >

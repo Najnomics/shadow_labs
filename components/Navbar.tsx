@@ -21,10 +21,10 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-minimal">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center min-w-0">
+          {/* Logo + Brand */}
+          <Link href="/" className="flex items-center min-w-0 shrink-0">
             <Logo variant="logo-only" size="sm" />
-            <span className="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl font-bold tracking-wide text-white text-glow hidden xs:block truncate">
+            <span className="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl font-bold tracking-wider text-white text-glow hidden xs:block truncate">
               prud_Labs
             </span>
           </Link>
